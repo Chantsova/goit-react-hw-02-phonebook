@@ -1,18 +1,12 @@
 @import-normalize;
 
 :root {
-  --table-border-color: rgba(82, 78, 78, 0.8);
-  --table-header-color: rgba(119, 135, 180, 0.8);
-  --table-background-color: rgba(199, 211, 245, 0.8);
-  --darkest-text-color: rgba(24, 31, 49, 0.8);
-  --dark-text-color: rgba(24, 31, 49, 0.5);
-  --background-avatar-color: rgb(217, 217, 245);
-  --online-color: rgb(98, 145, 98);
-  --offline-color: rgb(226, 155, 155);
-  --light-gradient-color: rgb(166, 166, 192);
-  --dark-gradient-color: rgb(122, 141, 228);
-  --darkest-gradient-color: rgb(38, 38, 75);
-  --location-color: rgb(39, 39, 85, 0.8);
+  --wrapper-primary-color: rgba(7, 10, 63, 0.8);
+  --wrapper-secondary-color: rgba(85, 113, 189, 0.8);
+  --lighter-blue-title: rgba(191, 205, 243, 0.8);
+  --background-contacts-color: rgba(217, 217, 245, 0.3);
+  --light-btn-color: rgb(166, 166, 192);
+  --lighter-blue-contact: rgba(191, 205, 243, 0.1);
 }
 
 body {

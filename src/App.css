@@ -37,14 +37,42 @@
   }
 }
 
-.Section {
-  width: 456px;
-  margin: 0 auto;
-  margin-bottom: 30px;
-  border: 1px solid rgb(121, 117, 117, 0.7);
-  box-shadow: 5px 5px 5px rgb(77, 86, 87);
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  border: 1px double rgb(33, 33, 99);
+  background: linear-gradient(
+    65deg,
+    var(--wrapper-primary-color),
+    var(--wrapper-secondary-color)
+  );
 }
 
-.Section__title {
-  text-align: center;
+.phonebook {
+  width: 50%;
+}
+
+.phonebook__title {
+  font-size: 40px;
+  text-shadow: var(--lighter-blue-title) 0px 5px 25px;
+}
+
+.contacts {
+  width: 100%;
+  padding: 20px;
+  box-shadow: var(--wrapper-primary-color) 0px 5px 5px;
+  background: linear-gradient(
+      35deg,
+      var(--wrapper-primary-color),
+      var(--wrapper-secondary-color)
+    ),
+    url('./tel.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.contacts__title {
+  font-size: 25px;
 }

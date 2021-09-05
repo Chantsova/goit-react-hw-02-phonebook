@@ -1,3 +1,4 @@
+import './App.css';
 import React, { Component } from 'react';
 import ContactForm from './components/ContactForm/ContactForm';
 import ContactList from './components/ContactList/ContactList';
@@ -49,19 +50,22 @@ class App extends Component {
     const visibleContacts = this.getVisibleContacts();
     return (
       <>
-        <div>
-          <h1>Phonebook</h1>
-          <ContactForm
-            onSubmit={this.formSubmitHandler}
-            onInput={this.testDublicateName}
-          />
-
-          <h2>Contacts</h2>
-          <Filter value={filter} onChange={this.changeFilter} />
-          <ContactList
-            contacts={visibleContacts}
-            onDeleteContact={this.deleteContacts}
-          />
+        <div className="wrapper">
+          <section className="phonebook">
+            <h1 className="phonebook__title">Phonebook</h1>
+            <ContactForm
+              onSubmit={this.formSubmitHandler}
+              onInput={this.testDublicateName}
+            />
+          </section>
+          <section className="contacts">
+            <h2 className="contacts__title">Contacts</h2>
+            <Filter value={filter} onChange={this.changeFilter} />
+            <ContactList
+              contacts={visibleContacts}
+              onDeleteContact={this.deleteContacts}
+            />
+          </section>
         </div>
       </>
     );
