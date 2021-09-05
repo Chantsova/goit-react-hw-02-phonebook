@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
-import Form from './components/Form/Form';
-import Contacts from './components/Contacts/Contacts';
-import { array } from 'prop-types';
+import ContactForm from './components/ContactForm/ContactForm';
+import ContactList from './components/ContactList/ContactList';
+import Filter from './components/Filter/Filter.jsx';
 
 class App extends Component {
   state = {
-    contacts: [],
-    name: '',
+    contacts: [
+      { id: 'id-1', name: 'Anastasia', number: '161-69-55' },
+      { id: 'id-2', name: 'Svetlana Divnaya', number: '443-89-12' },
+      { id: 'id-3', name: 'Illya Chantsov', number: '645-17-79' },
+      { id: 'id-4', name: 'Tatiana Zhelezina', number: '227-91-26' },
+    ],
+    filter: '',
   };
 
   deleteContacts = contactId => {
@@ -16,17 +21,48 @@ class App extends Component {
   };
 
   formSubmitHandler = data => {
-    console.log(data);
-    this.setState({ contacts: [data] });
+    const { contacts } = this.state;
+
+    const found = contacts.find(contact =>
+      contact.name.toLowerCase().includes(data.name.toLowerCase()),
+    );
+    found === undefined
+      ? this.setState({ contacts: this.state.contacts.concat(data) })
+      : alert(`${data.name} is already in the Contact List`);
+  };
+
+  changeFilter = event => {
+    this.setState({ filter: event.target.value });
+  };
+
+  getVisibleContacts = () => {
+    const { filter, contacts } = this.state;
+    const normalizedFilter = filter.toLowerCase();
+
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter),
+    );
   };
 
   render() {
-    const { contacts } = this.state;
-
+    const { filter } = this.state;
+    const visibleContacts = this.getVisibleContacts();
     return (
       <>
-        <Form onSubmit={this.formSubmitHandler} />
-        <Contacts contacts={contacts} onDeleteContact={this.deleteContacts} />
+        <div>
+          <h1>Phonebook</h1>
+          <ContactForm
+            onSubmit={this.formSubmitHandler}
+            onInput={this.testDublicateName}
+          />
+
+          <h2>Contacts</h2>
+          <Filter value={filter} onChange={this.changeFilter} />
+          <ContactList
+            contacts={visibleContacts}
+            onDeleteContact={this.deleteContacts}
+          />
+        </div>
       </>
     );
   }
