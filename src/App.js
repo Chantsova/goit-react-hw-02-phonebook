@@ -24,8 +24,8 @@ class App extends Component {
   formSubmitHandler = data => {
     const { contacts } = this.state;
 
-    const found = contacts.find(contact =>
-      contact.name.toLowerCase().includes(data.name.toLowerCase()),
+    const found = contacts.find(
+      contact => contact.name.toLowerCase() === data.name.toLowerCase(),
     );
     found === undefined
       ? this.setState(prevState => {
