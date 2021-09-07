@@ -75,4 +75,5 @@
 
 .contacts__title {
   font-size: 25px;
+  text-shadow: var(--lighter-blue-title) 0px 5px 25px;
 }

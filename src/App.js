@@ -28,7 +28,9 @@ class App extends Component {
       contact.name.toLowerCase().includes(data.name.toLowerCase()),
     );
     found === undefined
-      ? this.setState({ contacts: this.state.contacts.concat(data) })
+      ? this.setState(prevState => {
+          return { contacts: [...prevState.contacts, data] };
+        })
       : alert(`${data.name} is already in the Contact List`);
   };
 
